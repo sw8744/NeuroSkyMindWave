@@ -1,5 +1,7 @@
 package com.github.jasgo.neurosky;
 
+import org.json.simple.parser.ParseException;
+
 import java.io.IOException;
 
 public class NeuroSkyAPI {
@@ -9,6 +11,8 @@ public class NeuroSkyAPI {
         try {
             client.connect();
         } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ParseException e) {
             throw new RuntimeException(e);
         }
     }
